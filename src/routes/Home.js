@@ -5,19 +5,21 @@ import "./Home.css";
 
 const Home = () => {
   const [isLoading, setIsLoading] = React.useState(true);
-  const [movies, setMovies] = React.useState([]);
-  const getMovies = async () => {
-    const {
-      data: {
+  const [movies, setMovies] = React.useState([]);  
+  React.useEffect(() => {
+    async function getMovies() {
+      const {
         data: {
-          movies
+          data: {
+            movies
+          }
         }
-      }
-    } = await Axios.get("https://yts-proxy.now.sh/list_movies.json?sort_by=rating");
-    setMovies(movies);
-    setIsLoading(false);
-  }
-  React.useEffect(() => getMovies(), []);
+      } = await Axios.get("https://yts-proxy.now.sh/list_movies.json?sort_by=rating");
+      setMovies(movies);
+      setIsLoading(false);
+    }
+    getMovies();
+  }, []);
 
   return (
     <section className="container">
