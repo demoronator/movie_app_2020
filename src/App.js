@@ -6,7 +6,7 @@ import About from "./routes/About";
 import Detail from "./routes/Detail";
 import Navigation from "./components/Navigation";
 
-function App() {
+const App = () => {
   return (
     <HashRouter>  
       <Navigation />
@@ -14,7 +14,7 @@ function App() {
       <Route path="/about" component={About} />
       <Route path="/movie-detail" component={Detail} />
     </HashRouter>
-  );  
+  );
 }
 
 export default App;

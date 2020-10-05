@@ -1,24 +1,20 @@
 import React from "react";
 
-class Detail extends React.Component {
-    componentDidMount() {
-        console.log(this.props);
-        const { location, history } = this.props;
-
-        if (location.state === undefined) {
-            history.push("/");
-        }
+const Detail = (props) => {
+    if (props === undefined) {
+        history.push("/");
+        return "";
     }
     
-    render() {
-        const { location } = this.props;
-        if (location.state) {
-            return <span>{ location.state.title }</span>;
-        }
-        else {
-            return null;
-        }
+    console.log(props);
+    const { location, history } = props;
+
+    if (location.state === undefined) {
+        history.push("/");
+        return "";
     }
+    
+    return <span>{ location.state.title }</span>;
 }
 
 export default Detail;
