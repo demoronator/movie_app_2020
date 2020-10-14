@@ -1,20 +1,20 @@
-import React from 'react';
-import Axios from 'axios';
+import React from "react";
+import Axios from "axios";
 import Movie from "../components/Movie";
 import "./Home.css";
 
 const Home = () => {
   const [isLoading, setIsLoading] = React.useState(true);
-  const [movies, setMovies] = React.useState([]);  
+  const [movies, setMovies] = React.useState([]);
   React.useEffect(() => {
     async function getMovies() {
       const {
         data: {
-          data: {
-            movies
-          }
+          data: { movies }
         }
-      } = await Axios.get("https://yts-proxy.now.sh/list_movies.json?sort_by=rating");
+      } = await Axios.get(
+        "https://yts-proxy.now.sh/list_movies.json?sort_by=rating"
+      );
       setMovies(movies);
       setIsLoading(false);
     }
@@ -29,7 +29,7 @@ const Home = () => {
         </div>
       ) : (
         <div className="movies">
-          {movies.map(m => (
+          {movies.map((m) => (
             <Movie
               key={m.id}
               year={m.year}
@@ -43,6 +43,6 @@ const Home = () => {
       )}
     </section>
   );
-}
+};
 
 export default Home;

@@ -4,6 +4,12 @@ import { Link } from "react-router-dom";
 import "./Movie.css";
 
 const Movie = ({ year, title, summary, poster, genres }) => {
+  const MAX_LEN_SUMMARY = 400;
+  const slicedSummary =
+    summary.length <= MAX_LEN_SUMMARY
+      ? summary
+      : summary.slice(MAX_LEN_SUMMARY) + "...";
+
   return (
     <div className="movie">
       <Link
@@ -19,12 +25,11 @@ const Movie = ({ year, title, summary, poster, genres }) => {
           <ul className="movie__genres">
             {genres.map((genre, id) => (
               <li className="movie__genre" key={id}>
-                {" "}
-                {genre}{" "}
+                {` ${genre} `}
               </li>
             ))}
           </ul>
-          <p className="movie__summary">{summary.slice(0, 400)}...</p>
+          <p className="movie__summary">{slicedSummary}</p>
         </div>
       </Link>
     </div>

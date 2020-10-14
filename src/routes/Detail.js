@@ -1,4 +1,5 @@
 import React from "react";
+import "./Detail.css";
 
 const Detail = (props) => {
   console.log(props);
@@ -14,7 +15,9 @@ const Detail = (props) => {
     return "";
   }
 
-  return <span>{location.state.title}</span>;
+  return (
+    <span className="detail detail__container">{location.state.title}</span>
+  );
 };
 
 export default Detail;
