@@ -1,3 +1,3 @@
-# Movie App 2020
+# React Movie App
 
 https://movie-demoro.netlify.app
