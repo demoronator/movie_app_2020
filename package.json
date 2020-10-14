@@ -1,5 +1,5 @@
 {
-  "name": "movie_app_2020",
+  "name": "movie-app-2020",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -35,5 +35,7 @@
       "last 1 safari version"
     ]
   },
-  "homepage": "https://demoronator.github.io/movie_app_2020/"
+  "homepage": "https://demoronator.github.io/movie_app_2020/",
+  "keywords": [],
+  "description": ""
 }
