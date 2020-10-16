@@ -16,7 +16,21 @@ const Detail = (props) => {
   }
 
   return (
-    <span className="detail detail__container">{location.state.title}</span>
+    <span className="detail detail__container">
+      <div className="detail__content">
+        <div>
+          <h1>
+            <span role="img" aria-label="construction">
+              👷
+            </span>
+            Under construction
+          </h1>
+        </div>
+        <div>
+          <h2>{location.state.title}</h2>
+        </div>
+      </div>
+    </span>
   );
 };
 
