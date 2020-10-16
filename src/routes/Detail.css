@@ -7,10 +7,14 @@
 }
 
 .detail__content {
-  height: fit-content;
   justify-content: center;
   vertical-align: middle;
   align-items: center;
   font-weight: 300;
   color: white;
+}
+
+.detail__trailer {
+  width: 560px;
+  height: 315px;
 }
