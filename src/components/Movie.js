@@ -5,10 +5,10 @@ import "./Movie.css";
 
 const Movie = ({ year, title, summary, poster, genres }) => {
   const MAX_LEN_SUMMARY = 400;
-  const slicedSummary =
-    summary.length <= MAX_LEN_SUMMARY
-      ? summary
-      : summary.slice(MAX_LEN_SUMMARY) + "...";
+  const isLong = MAX_LEN_SUMMARY < summary.length;
+  const slicedSummary = isLong
+    ? summary.substring(0, MAX_LEN_SUMMARY) + "..."
+    : summary;
 
   return (
     <div className="movie">
