@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import "./Detail.css";
 
 const API_GET_TRAILER =
-  "https://powqkoncwk.execute-api.ap-northeast-2.amazonaws.com/live/";
+  "https://5q27p82gb0.execute-api.ap-northeast-2.amazonaws.com/live/search-trailer?q=";
 
 const Detail = (props) => {
   console.log(props);
@@ -15,12 +15,14 @@ const Detail = (props) => {
   useEffect(() => {
     async function getTrailer(title) {
       let isOk = true;
-      const response = await Axios.get(API_GET_TRAILER + title).catch(
-        (error) => {
-          console.warn("Failed to retrieve trailer id");
-          isOk = false;
-        }
-      );
+      const query =
+        API_GET_TRAILER + title.replaceAll(" ", "+") + "+movie+trailer";
+      console.log(query);
+
+      const response = await Axios.get(query).catch((error) => {
+        console.warn(`Failed to retrieve trailer id\n${error}`);
+        isOk = false;
+      });
       if (!isOk) {
         return;
       }
