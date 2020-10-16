@@ -33,7 +33,7 @@ const Detail = (props) => {
     if (canShow) {
       getTrailer(location.state.title);
     }
-  }, [history, location.state, props, canShow]);
+  }, [canShow, location]);
 
   if (!canShow) {
     history.push("/");
