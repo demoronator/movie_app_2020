@@ -16,7 +16,6 @@ const Detail = (props) => {
     async function getTrailer(title) {
       let isOk = true;
       const query = encodeURI(API_GET_TRAILER + title);
-      console.log(query);
 
       const response = await Axios.get(query).catch((error) => {
         console.warn(`Failed to retrieve trailer id\n${error}`);
@@ -27,9 +26,7 @@ const Detail = (props) => {
         return;
       }
 
-      console.dir(response);
       const id = response.data;
-      console.log(id);
       setYoutubeId(id);
     }
 
