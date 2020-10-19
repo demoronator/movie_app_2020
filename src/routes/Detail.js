@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import "./Detail.css";
 
 const API_GET_TRAILER =
-  "https://5q27p82gb0.execute-api.ap-northeast-2.amazonaws.com/live/search-trailer?q=";
+  "https://5q27p82gb0.execute-api.ap-northeast-2.amazonaws.com/live/trailer-v2/";
 
 const Detail = (props) => {
   console.log(props);
@@ -15,20 +15,18 @@ const Detail = (props) => {
   useEffect(() => {
     async function getTrailer(title) {
       let isOk = true;
-      const query =
-        API_GET_TRAILER + title.replaceAll(" ", "+") + "+movie+trailer";
-      console.log(query);
+      const query = encodeURI(API_GET_TRAILER + title);
 
       const response = await Axios.get(query).catch((error) => {
         console.warn(`Failed to retrieve trailer id\n${error}`);
+        console.log(response);
         isOk = false;
       });
       if (!isOk) {
         return;
       }
 
-      const id = response.data.items[0].id.videoId;
-      console.log(id);
+      const id = response.data;
       setYoutubeId(id);
     }
 
