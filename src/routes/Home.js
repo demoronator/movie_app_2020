@@ -16,7 +16,6 @@ const Home = () => {
           "@meta": { server_time }
         }
       } = obj;
-      console.log(server_time);
       const expiration = server_time + EXPIRATION_SEC;
       const now = Math.floor(Date.now() / 1000);
       return now < expiration;
